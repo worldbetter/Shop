@@ -7,6 +7,7 @@ import ladyOuter from "../assets/commodity/ladies_outerwear"
 import ladyTshirt from "../assets/commodity/ladies_tshirts"
 import menOuter from "../assets/commodity/mens_outerwear"
 import menTshirt from "../assets/commodity/mens_tshirts"
+import {Detail} from "./first/detail";
 
 const TabPane = Tabs.TabPane
 
@@ -58,6 +59,7 @@ function Header(props) {
     marginTop: '50px',
     marginBottom: '50px'
   }
+  const Name = false
     return (
       <div>
         {/*<div>&&&&{props.currentShow}</div>*/}
@@ -66,10 +68,18 @@ function Header(props) {
           <Tabs renderTabBar={renderTabBar}>
             {tabProp.map((item) => (
               <TabPane tab={item.tab} key={item.key}>
-                <Display imageUrl={item.imageUrl} type={item.type} itemNumber={item.itemNumber}/>
-                <div onClick={showDetail}>
-                  <Commodity itemDetail={item.itemDetail}/>
-                </div>
+                {Name?
+                  (<div>
+                    <Display imageUrl={item.imageUrl} type={item.type} itemNumber={item.itemNumber}/>
+                    <div onClick={showDetail}>
+                      <Commodity itemDetail={item.itemDetail}/>
+                    </div>
+                  </div>):(
+                    <div>
+                      <Detail commodity={item.itemDetail}/>
+                    </div>
+                  )
+                }
               </TabPane>
             ))}
           </Tabs>
