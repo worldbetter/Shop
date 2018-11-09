@@ -18,7 +18,11 @@ const renderTabBar = (props,DefaultTabBar) => (
   </Sticky>
 )
 
-function Header() {
+function showDetail() {
+  console.log('test')
+}
+
+function Header(props) {
   const tabProp = [{
     tab: "Men's Outerwear",
     key: "1",
@@ -48,19 +52,29 @@ function Header() {
     itemNumber: 6,
     itemDetail: ladyTshirt
   }]
+  const demoStyle = {
+    background: '#000000',
+    color: '#ffffff',
+    marginTop: '50px',
+    marginBottom: '50px'
+  }
     return (
       <div>
+        <div>&&&&{props.currentShow}</div>
         <h1>SHOP</h1>
         <StickyContainer>
           <Tabs renderTabBar={renderTabBar}>
             {tabProp.map((item) => (
               <TabPane tab={item.tab} key={item.key}>
                 <Display imageUrl={item.imageUrl} type={item.type} itemNumber={item.itemNumber}/>
-                <Commodity itemDetail={item.itemDetail}/>
+                <div onClick={showDetail}>
+                  <Commodity itemDetail={item.itemDetail}/>
+                </div>
               </TabPane>
             ))}
           </Tabs>
         </StickyContainer>
+        <Button style={demoStyle}>DEMO ONLY</Button>
       </div>
     )
 }
