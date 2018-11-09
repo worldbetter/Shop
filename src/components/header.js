@@ -60,7 +60,7 @@ function Header(props) {
   }
     return (
       <div>
-        <div>&&&&{props.currentShow}</div>
+        {/*<div>&&&&{props.currentShow}</div>*/}
         <h1>SHOP</h1>
         <StickyContainer>
           <Tabs renderTabBar={renderTabBar}>

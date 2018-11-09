@@ -9,7 +9,7 @@ function RouterConfig({ history }) {
   return (
     <Router history={history}>
       <Switch>
-        <Route path="/" exact component={IndexPage} />
+        <Route path="/" exact component={Main} />
         <Route path="/com" exact component={Main}/>
       </Switch>
     </Router>
